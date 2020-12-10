@@ -6,8 +6,13 @@ const {
   signup,
   requireSignin,
 } = require('../../controllers/admin/adminAuthController');
+const {
+  validateRequest,
+  isRequestValidated,
+  validateSigninRequest,
+} = require('../../validators/authValidators');
 
-router.post('/signin', signin);
-router.post('/signup', signup);
+router.post('/signin', validateSigninRequest, isRequestValidated, signin);
+router.post('/signup', validateRequest, isRequestValidated, signup);
 
 module.exports = router;

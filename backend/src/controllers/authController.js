@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
+const { validationResult } = require('express-validator');
 
 //@route        POST /api/user/signin
 //@access       Public
