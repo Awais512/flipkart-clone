@@ -1,6 +1,5 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
-const { validationResult } = require('express-validator');
 
 //@route        POST /api/user/signin
 //@access       Public
@@ -58,11 +57,4 @@ exports.signup = async (req, res) => {
     res.status(500).json({ message: 'Something went Wrong' });
     console.log(err);
   }
-};
-
-exports.requireSignin = (req, res, next) => {
-  const token = req.headers.authorization.split(' ')[1];
-  const user = jwt.verify(token, process.env.JWT_SECRET);
-  req.user = user;
-  next();
 };

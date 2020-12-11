@@ -4,7 +4,6 @@ const router = express.Router();
 const {
   signin,
   signup,
-  requireSignin,
 } = require('../../controllers/admin/adminAuthController');
 const {
   validateRequest,
